@@ -1,10 +1,20 @@
 import SwiftUI
+import ComposableArchitecture
 
 @main
 struct TuistTCAExampleApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            
+            HomeView(store:
+                        Store(
+                            initialState: HomeViewReducer.State(),
+                            reducer: {
+                                HomeViewReducer()
+                            }
+                        )
+            )
+            
         }
     }
 }
