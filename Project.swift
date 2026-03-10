@@ -18,7 +18,9 @@ let project = Project(
             ),
             sources: ["TuistTCAExample/Sources/**"],
             resources: ["TuistTCAExample/Resources/**"],
-            dependencies: []
+            dependencies: [
+                .external(name: "ComposableArchitecture")
+            ]
         ),
         .target(
             name: "TuistTCAExampleTests",
