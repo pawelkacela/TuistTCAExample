@@ -5,25 +5,27 @@
 //  Created by Pawel Kacela on 10/03/2026.
 //
 
-import SwiftUI
 import ComposableArchitecture
+import SwiftUI
 
 
-struct HomeViewReducer: Reducer {
+public struct HomeViewReducer: Reducer {
     
-    struct State: Equatable {
+    public init() { }
+    
+    public struct State: Equatable {
         var someName: String
         
-        init(someName: String = "") {
+        public init(someName: String = "") {
             self.someName = someName
         }
     }
     
-    enum Action: Equatable {
+    public enum Action: Equatable {
         case someAction
     }
     
-    var body: some ReducerOf<Self> {
+    public var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
             case .someAction:
@@ -34,11 +36,15 @@ struct HomeViewReducer: Reducer {
     }
 }
 
-struct HomeView: View {
+public struct HomeView: View {
     
-    let store: StoreOf<HomeViewReducer>
+    public init(store: StoreOf<HomeViewReducer>) {
+        self.store = store
+    }
     
-    var body: some View {
+   let store: StoreOf<HomeViewReducer>
+    
+    public var body: some View {
         Text("Home View")
         Button {
             store.send(.someAction)
