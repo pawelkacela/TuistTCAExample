@@ -7,14 +7,16 @@ struct SteamWrappedApp: App {
     var body: some Scene {
         WindowGroup {
             
-            HomeView(store:
-                        StoreOf<HomeViewReducer>(
-                            initialState: HomeViewReducer.State(),
-                            reducer: {
-                                HomeViewReducer()
-                            }
-                        )
+            OnboardingView(
+                store:
+                    Store(
+                        initialState: OnboardingReducer.State(),
+                        reducer: {
+                            OnboardingReducer()
+                        }
+                    )
             )
+            
         }
     }
 }
