@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+public struct PageDTO: Equatable, Identifiable {
+    public var title: String
+    public let id: UUID
+}
